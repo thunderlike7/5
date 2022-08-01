@@ -1,17 +1,17 @@
 def dfs_rec(graph,node,path,soln): 
-path.append(node)
-for v in graph[node]: 
-if not v in path:
-dfs_rec(graph,v,path,soln) 
-soln.append(node)
+    path.append(node)
+    for v in graph[node]: 
+        if not v in path:
+            dfs_rec(graph,v,path,soln) 
+            soln.append(node)
 def topo_sort(graph,node,path,soln): 
-ver_set=graph.keys()
-for v in ver_set: 
-if v not in path:
-dfs_rec(graph,v,path,soln)
-
+    ver_set=graph.keys()
+    for v in ver_set: 
+        if v not in path:
+            dfs_rec(graph,v,path,soln)
 
 graph={'A':['B','C'],'B':['E','G'],'C':['F'],'D':['A','B','C','F','G'],'E':[ ],'F':[ ],'G':['E','F']}
+
 path=[ ] 
 soln=[ ]
 topo_sort(graph,'A',path,soln) 
