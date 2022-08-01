@@ -1,31 +1,35 @@
 import random
+
 def gen_data(a, n): 
-for i in range(n):
-x=randomization(0,100) 
-append(x)
+    for i in range(n):
+       x=random.randint(0,100) 
+       a.append(x)
+       
 def bin_srch(a,low,high,key): 
-if (low>high):
-return -1
-mid=int( (low+high)/2 )
-if a[mid]==key: 
-return mid
-elif key<a[mid]:
-return bin_srch(a,low,mid-1,key) 
-else:
-return bin_srch(a,mid+1,high,key) 
-
-
+    if (low>high):
+        return -1
+    mid=int( (low+high)/2 )
+    if a[mid]==key: 
+        return mid
+    elif key<a[mid]:
+        return bin_srch(a,low,mid-1,key) 
+    else:
+        return bin_srch(a,mid+1,high,key) 
+#---------driver code---------
 a=[ ]
 print ('Enter size:') 
 n=int(input( )) 
 gen_data(a,n) 
 a.sort()
+
 print ('The elements are :') 
 print (a)
-print ('Enter key element :') 
+
+print ('Enter key element :')
 key=int(input()) 
 x=bin_srch(a,0,n-1,key)
+
 if x==-1:
-print ('Key element not found') 
+    print ('Key element not found') 
 else:
-print ('Element found at position', x+1)
+    print ('Element found at position', x+1)
