@@ -1,22 +1,22 @@
 def horspool(pattern,text): 
-m=len(pattern) 
-n=len(text)
-if m<n:
-return -1 
-bad_char_jump=[n]*250 
-for i in range(n-1):
-bad_char_jump[ord(text[i])]=n-i-1 
-pos=0
-while pos<=m-n: 
-j=n-1
-while j>=0 and text[j]==pattern[pos+j]: 
-j=j-1
-if j==-1: 
-return pos
-else:
-pos=pos+bad_char_jump[ord(pattern[pos+n-1])] 
-return -1 
+    m=len(pattern) 
+    n=len(text)
+    if m<n:
+        return -1 
+    bad_char_jump=[n]*250 
+    for i in range(n-1):
+        bad_char_jump[ord(text[i])]=n-i-1 
+    pos=0
+    while pos<=m-n: 
+        j=n-1
+        while j>=0 and text[j]==pattern[pos+j]: 
+            j=j-1
+        if j==-1: 
+            return pos
+        else:
+            pos=pos+bad_char_jump[ord(pattern[pos+n-1])] 
+    return -1 
 
-pattern=raw_input("pattern:")
-text=raw_input("text:") 
+pattern=input("Pattern:")
+text=input("Text:")
 print (horspool(pattern,text))
